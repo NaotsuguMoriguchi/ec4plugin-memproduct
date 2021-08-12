@@ -19,8 +19,7 @@ trait CustomerTrait
      *     type="\Symfony\Component\Form\Extension\Core\Type\ChoiceType",
      *     options={
      *          "required": true,
-     *          "choices": {"有料":"有料","無料":"無料"},
-     *          "expanded": true,
+     *          "choices": {"有料":1,"無料":2},
      *          "label": "有料/無料"     
      *     })
      */
