@@ -32,7 +32,7 @@ class MbOptionType extends AbstractType
     {
         $resolver->setDefaults([
             'class' => 'Plugin\membership\Entity\MbOption',
-            'expanded' => true,
+            // 'expanded' => true,
             'placeholder' => false,
         ]);
     }

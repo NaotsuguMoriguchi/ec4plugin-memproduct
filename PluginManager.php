@@ -47,17 +47,15 @@ class PluginManager extends AbstractPluginManager
         $sortNo = 1;
         
         $Config1 = new MbOption();
-        $Config1->setName('有料');
+        $Config1->setName('無料');
         $Config1->setSortNo($sortNo);
-        $Config1->setDiscriminatorType(MbOption::class);
-
+        
         $entityManager->persist($Config1);        
         $entityManager->flush($Config1);
-
+        
         $Config2 = new MbOption();
-        $Config2->setName('無料');
+        $Config2->setName('有料');
         $Config2->setSortNo($sortNo + 1);
-        $Config2->setDiscriminatorType(MbOption::class);
 
         $entityManager->persist($Config2);
         $entityManager->flush($Config2);

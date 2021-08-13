@@ -11,17 +11,33 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 trait CustomerTrait
 {
+    
     /**
-     * @ORM\Column(name="membership", type="string", length=255, nullable=true)
-     * @Assert\NotBlank(message="入力してください")
+     * @var \Plugin\membership\Entity\MbOption
+     *
+     * @ORM\ManyToOne(targetEntity="Plugin\membership\Entity\MbOption")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="membership_id", referencedColumnName="id")
+     * })
      * @Eccube\FormAppend(
-     *     auto_render=true,
-     *     type="\Symfony\Component\Form\Extension\Core\Type\ChoiceType",
-     *     options={
-     *          "required": true,
-     *          "choices": {"有料":1,"無料":2},
-     *          "label": "有料/無料"     
-     *     })
+     *   auto_render=true,
+     *   type="\Plugin\membership\Form\Type\MbOptionType",
+     *   options={
+     *     "required": false,
+     *     "label": "有料/無料",
+     *   })
      */
-    public $membership;
+
+    private $membership;
+
+    /**
+     * Get membership.
+     *
+     * @return \Plugin\Membership\Entity\MbOption|null
+     */
+    public function getMembership()
+    {
+        return $this->membership;
+    }
+    
 }
